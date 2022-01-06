@@ -8,9 +8,11 @@
     <title>Countdown Timer</title>
 </head>
 <body>
-    <h1 id="time"></h1>
-    <button class="buttons">Start</button>
-    <button class="buttons">Reset</button>
+    <h1 id="timer">0</h1>
+    <button class="buttons" onclick="clicks+=30;goUpOrDown();">+</button>
+    <button class="buttons" onclick="clicks+=(-30);goUpOrDown();">-</button>
+    <button class="buttons" onclick="startTimer()">Start</button>
+    <button class="buttons" onclick="resetTimer()">Reset</button>
 
     <script src="./functions.js"></script>
 </body>
