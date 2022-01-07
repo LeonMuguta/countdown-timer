@@ -1,25 +1,47 @@
-let clicks = 0;
+seconds = 0;
 
 function goUpOrDown() {
-    document.getElementById("timer").innerHTML = clicks;
+    document.getElementById("timer").innerHTML = seconds;
+
+    if (seconds < 0){
+        alert("Cannot go below 0");
+        seconds = 0;
+        document.getElementById("timer").innerHTML = seconds;
+    }
 }
 
+let down = null;
+
 function startTimer(){
-    let counter = clicks;
-    let down = setInterval(function() {
-        counter--
-        if (counter >= 0) {
+    let countDown = seconds;
+    console.log(countDown);
+    if (countDown === 0 ) {
+        alert("Please set your time before pressing start!");
+    }
+    down = setInterval(function() {
+        countDown--
+        if (countDown >= 0) {
             timeLeft = document.getElementById("timer");
-            timeLeft.innerHTML = counter;
+            timeLeft.innerHTML = countDown;
         }
-        if (counter === 0) {
-            clearInterval(counter);
-            alert("Time's Up!!!");
+        if (countDown === 0) {
+            clearInterval(countDown);
+            seconds = 0;
+
+            setTimeout(function(){
+                let audio = new Audio('./audio/timeUp.wav');
+                audio.play();
+            }, 500);
+            
+            setTimeout(function(){
+                alert("Time's up");
+            }, 1000);
         }
     }, 1000);
 }
 
-// function resetTimer(){
-//     document.getElementById("timer").innerHTML = 0;
-//     clearInterval();
-// }
+function resetTimer(){
+    clearInterval(down);
+    document.getElementById("timer").innerHTML = 0;
+    seconds = 0;
+}
