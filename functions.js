@@ -34,8 +34,8 @@ function startTimer(){
             }, 500);
             
             setTimeout(function(){
-                alert("Time's up");
-            }, 1000);
+                document.getElementById("timer").innerHTML = "Time's Up!";
+            }, 500);
         }
     }, 1000);
 }

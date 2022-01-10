@@ -5,13 +5,15 @@ body {
     background-image: linear-gradient(to right, red, yellow);
 }
 
-#time {
-    font-size: 6em;
+#timer {
+    font-size: 10em;
 }
 
 .buttons {
-    height: 40px;
-    width: 60px;
+    height: 60px;
+    width: 80px;
+    font-size: 1em;
+    font-weight: bold;
     margin-left: 5px;
     border-radius: 2em;
     box-sizing: border-box;
